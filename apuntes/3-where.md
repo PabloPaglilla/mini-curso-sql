@@ -137,7 +137,7 @@ En esa situación entra en juego el operador `NOT`.
 
 ### Operador NOT
 
-Este operador sirve para negar los operadores `IN`, `LIKE`, `BETWEEN` e `IS` (además de otros más avanzados que vamos a ver más adelante).
+Este operador sirve para negar los operadores `IN`, `LIKE`, `BETWEEN` e `IS`.
 
 Así, se generan 4 "nuevos" operadores:
 

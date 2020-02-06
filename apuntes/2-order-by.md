@@ -152,5 +152,5 @@ Usar `LIMIT` solo muchas veces no tiene mucho sentido más que permitir visualiz
 Supongamos que queremos traer las 5 campañas con más impresiones. Podriamos ordenar las campañas descendentemente por impresiones y limitar la cantidad de resultados a 5.
 
 ``` sql
-SELECT campaign_name FROM campaigns ORDER BY impressions DESC LIMIT 10
+SELECT campaign_name FROM campaigns ORDER BY impressions DESC LIMIT 5
 ```

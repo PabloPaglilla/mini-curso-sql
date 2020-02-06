@@ -116,3 +116,41 @@ En este otro caso, obtendriamos este resultado:
 | campaign_1    | 11000       | 200    |
 | campaign_3    | 11000       | 220    |
 | campaign_2    | 7000        | 150    |
+
+## Limitando la cantidad de resultados
+
+Supongamos ahora que queremos limitar la cantidad de filas que devuelve un SELECT que realizamos. Podemos hacerlo con la clausula opcional `LIMIT`.
+
+Extendemos más la sintaxis del SELECT:
+
+``` sql
+SELECT {columnas} FROM {tabla} [LIMIT N]
+```
+
+Si también incluimos el ORDER BY opcional en la sintaxis
+
+``` sql
+SELECT {columnas} FROM {tabla} [ORDER BY {columnas} [ASC | DESC]] [LIMIT N]
+```
+
+**Nota:** tener en cuenta el orden de las cláusulas en la sintaxis. Como se puede ver arriba, `ORDER BY` va antes que `LIMIT` y siempre tiene que ser así.
+
+### Usando LIMIT
+
+Para usar `LIMIT`; agregamos al final de la consulta la palabra, seguida del número máximo de filas que queremos que retorne el SELECT. Si especificamos que queremos un máximo de 10 filas, la consulta traerá solo las primeras 10 filas de la tabla resultado.
+
+Supongamos que quiero traer el nombre de las campañas del cliente, pero con un máximo de 10. Puede hacerlo de la siguiente forma:
+
+``` sql
+SELECT campaign_name FROM campaigns LIMIT 10
+```
+
+### Usando LIMIT con ORDER BY
+
+Usar `LIMIT` solo muchas veces no tiene mucho sentido más que permitir visualizar una pequeña parte de los resultados. Ahora bien, `LIMIT` es mucho más util cuando se lo combina con `ORDER BY`.
+
+Supongamos que queremos traer las 5 campañas con más impresiones. Podriamos ordenar las campañas descendentemente por impresiones y limitar la cantidad de resultados a 5.
+
+``` sql
+SELECT campaign_name FROM campaigns ORDER BY impressions DESC LIMIT 10
+```

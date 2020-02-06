@@ -32,12 +32,17 @@ SELECT campaign_name, impressions, clicks FROM campaigns
 A su vez, existen algunos 'atajos' para consultar numerosas columnas:
 
 * Consultar todas las columnas de una tabla
+    
     Para consultar todas las columnas de una tabla, se reemplaza la lista de columnas por un *
+
     ``` sql
     SELECT * FROM campaigns
     ```
+
 * Consultar todas las columnas de una tabla, exceptuando algunas
+    
     Se reemplaza la lista de columnas por `* EXCEPT ({columnas que excluir})`
+
     ``` sql
     SELECT * EXCEPT (creative_id, creative_name) FROM campaigns
     ```
@@ -90,19 +95,24 @@ Notar cómo ahora sí es util poder asignarle un nombre a la columna CTR. Si no 
 Las expresiones puede ser:
 
 * Valores únicos
+
     Podemos escribir algo de la forma `SELECT 1 AS numero_1 FROM campaigns`. En este caso, todas las filas contienen el número 1 en la columna.
 
 * Cálculos matemáticos entre columnas
+
     Como el ejemplo anterior del cálculo del CTR.
 
 * Llamadas a funciones
+
     Una función es una pieza de código que toma ciertos parámetros y retorna un resultado. Vamos a hablar de funciones más adelante, pero un ejemplo sencillo es la función `CONCAT`. Esta funcion toma varias piezas de texto y las une en un único texto. Si quisieramos obtener el nombre completo de los clientes de una empresa, podriamos hacer algo como esto:
+
 
     ``` sql
     SELECT CONCAT(nombre, apellido) FROM clientes
     ```
 
 * Una combinación de las anteriores
+
     Pueden mezclarse llamadas a funciones, calculos y valores. El siguiente ejemplo calcula el CTR como un porcentaje (CTR * 100) y luego le aplica la función ROUND, la cual lo redondea al entero más cercano.
 
     ``` sql
